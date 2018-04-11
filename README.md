@@ -1,9 +1,13 @@
 # MarketMap
 
+## Description
+
+
+
 ## Created by
 
-* mariia peretiatko - [@Unlimcontrol](github.com/Unlimcontrol)
-* yurii pohuliaiev - [@matan4life](github.com/matan4life)
-* yurii liubchenko - [@undeadspez](github.com/undeadspez)
-* anna sorokina - [@amnangapie](github.com/amnangapie)
-* mykhailo temnokhud - [@MichaelDark](github.com/MichaelDark)
+* Mariia Peretiatko - [@Unlimcontrol](github.com/Unlimcontrol)
+* Yurii Pohuliaiev - [@matan4life](github.com/matan4life)
+* Yurii Liubchenko - [@undeadspez](github.com/undeadspez)
+* Anna Sorokina - [@amnangapie](github.com/amnangapie)
+* Mykhailo Temnokhud - [@MichaelDark](github.com/MichaelDark)
