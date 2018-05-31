@@ -2,15 +2,15 @@
 
 ## Description
 
-Android app that helps people to navigate through markets, see detailed information on marketplaces, as well as reading reviews from other customers. 
+Project that helps people to navigate through markets, inspect detailed information about marketplaces, as well as read reviews from other customers.
 
-The target audience for this application are people who often make purchases on the market, as well as tourists who fall into unfamiliar terrain. 
+The target audience for this application are people who often make purchases on a market, as well as tourists who fall into unfamiliar region. 
 
-Accurate display of all trading areas (marketplaces) on the map, as well as images of buildings, allows without fail to find the necessary store, having spent for it a minimum of time. 
+Accurate display of most trading areas (marketplaces) on the map, as well as images of buildings, surely allows to find the essential store, having spent a minimum amount of time. 
 
 With the introduction of the registration and feedback system, users will have opportunity to share their opinions about a particular outlet.
 
-## Created by
+## Developers
 
 * Mariia Peretiatko - [@Unlimcontrol](https://github.com/Unlimcontrol)
 * Yurii Pohuliaiev - [@matan4life](https://github.com/matan4life)
