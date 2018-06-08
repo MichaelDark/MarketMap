@@ -1,0 +1,210 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:2:1-57:12
+MERGED from [com.android.support:design:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\26dade9aba66d4c83bae29fc910dd1c5\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\f6146dada4cb269bdf7b68190b02ea1e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\ef16d8e54d0a9fd847f3e1baaf923198\AndroidManifest.xml:17:1-32:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\2cbab2f8b2fcb97b5815a8edb319560b\AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\40a2141daeff1127f21ae8d9fbb562fa\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\111d07dbfe45b726d6eadd87d99c9a9c\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\6c63bec6500ff0b7c9a89ddb10a9d85a\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\3fb1dd8cd8e057f5f60754f491f92e5a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\df6099a36dda51987a1a7aff224b9781\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\47732ad7c0ec3c8c7081e1e38aee4e06\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\efe46be4eb88235dc3980b9e6827a47c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\d7f5b828543054703580a24d0fa8e3d3\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\2fd8332683cf10d5db46719a0fa6df6a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\186590860dc4f75c5842819daec44e84\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\506be6bba4154972c948afc2aeb53168\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\e1f6a6646e94afc8418aabb43662c8f4\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\7d659259f05ecb1d8dc070ab2bc54b48\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\a6034f6fd22af96adbabe4758f0d35ac\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\f5732a9e23f077225f4f616eec6f0db3\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\059b58666f04fe7f599fa4de8944521c\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\ce4603965ece22816671b84aa7fd87ee\AndroidManifest.xml:17:1-22:12
+INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:2:1-57:12
+	package
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:3:5-32
+		INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:2:1-57:12
+		INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:2:1-57:12
+		INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:10:22-76
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:13:5-71
+	android:name
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:13:22-68
+uses-permission#android.permission.READ_PROFILE
+ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:14:5-71
+	android:name
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:14:22-68
+uses-permission#android.permission.READ_CONTACTS
+ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:15:5-72
+	android:name
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:15:22-69
+application
+ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:17:5-55:19
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\ef16d8e54d0a9fd847f3e1baaf923198\AndroidManifest.xml:30:5-20
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\ef16d8e54d0a9fd847f3e1baaf923198\AndroidManifest.xml:30:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\2cbab2f8b2fcb97b5815a8edb319560b\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\2cbab2f8b2fcb97b5815a8edb319560b\AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\40a2141daeff1127f21ae8d9fbb562fa\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\40a2141daeff1127f21ae8d9fbb562fa\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\111d07dbfe45b726d6eadd87d99c9a9c\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\111d07dbfe45b726d6eadd87d99c9a9c\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\6c63bec6500ff0b7c9a89ddb10a9d85a\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\6c63bec6500ff0b7c9a89ddb10a9d85a\AndroidManifest.xml:22:5-26:19
+	android:supportsRtl
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:22:9-35
+	android:label
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:20:9-41
+	android:roundIcon
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:21:9-54
+	android:icon
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:19:9-43
+	android:allowBackup
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:18:9-35
+	android:theme
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:23:9-40
+meta-data#com.google.android.geo.API_KEY
+ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:33:9-35:55
+	android:value
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:35:13-52
+	android:name
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:34:13-58
+activity#ua.nure.marketmap.MainActivity
+ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:37:9-45:20
+	android:label
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:39:13-56
+	android:theme
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:40:13-44
+	android:name
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:38:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:41:13-44:29
+action#android.intent.action.MAIN
+ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:42:17-69
+	android:name
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:42:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:43:17-77
+	android:name
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:43:27-74
+activity#ua.nure.marketmap.AuthorizationActivity
+ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:46:9-49:58
+	android:parentActivityName
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:49:13-55
+	android:label
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:48:13-65
+	android:name
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:47:13-50
+activity#ua.nure.marketmap.OutletActivity
+ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:50:9-54:47
+	android:parentActivityName
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:53:13-55
+	android:label
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:52:13-58
+	android:theme
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:54:13-44
+	android:name
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml:51:13-43
+uses-sdk
+INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml
+INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:design:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\26dade9aba66d4c83bae29fc910dd1c5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\26dade9aba66d4c83bae29fc910dd1c5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\f6146dada4cb269bdf7b68190b02ea1e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\f6146dada4cb269bdf7b68190b02ea1e\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\ef16d8e54d0a9fd847f3e1baaf923198\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\ef16d8e54d0a9fd847f3e1baaf923198\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\2cbab2f8b2fcb97b5815a8edb319560b\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\2cbab2f8b2fcb97b5815a8edb319560b\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\40a2141daeff1127f21ae8d9fbb562fa\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\40a2141daeff1127f21ae8d9fbb562fa\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\111d07dbfe45b726d6eadd87d99c9a9c\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\111d07dbfe45b726d6eadd87d99c9a9c\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\6c63bec6500ff0b7c9a89ddb10a9d85a\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\6c63bec6500ff0b7c9a89ddb10a9d85a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\3fb1dd8cd8e057f5f60754f491f92e5a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\3fb1dd8cd8e057f5f60754f491f92e5a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\df6099a36dda51987a1a7aff224b9781\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\df6099a36dda51987a1a7aff224b9781\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\47732ad7c0ec3c8c7081e1e38aee4e06\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\47732ad7c0ec3c8c7081e1e38aee4e06\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\efe46be4eb88235dc3980b9e6827a47c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\efe46be4eb88235dc3980b9e6827a47c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\d7f5b828543054703580a24d0fa8e3d3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\d7f5b828543054703580a24d0fa8e3d3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\2fd8332683cf10d5db46719a0fa6df6a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\2fd8332683cf10d5db46719a0fa6df6a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\186590860dc4f75c5842819daec44e84\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\186590860dc4f75c5842819daec44e84\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\506be6bba4154972c948afc2aeb53168\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\506be6bba4154972c948afc2aeb53168\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\e1f6a6646e94afc8418aabb43662c8f4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\e1f6a6646e94afc8418aabb43662c8f4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\7d659259f05ecb1d8dc070ab2bc54b48\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\7d659259f05ecb1d8dc070ab2bc54b48\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\a6034f6fd22af96adbabe4758f0d35ac\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\a6034f6fd22af96adbabe4758f0d35ac\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\f5732a9e23f077225f4f616eec6f0db3\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\f5732a9e23f077225f4f616eec6f0db3\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\059b58666f04fe7f599fa4de8944521c\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\059b58666f04fe7f599fa4de8944521c\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\ce4603965ece22816671b84aa7fd87ee\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\ce4603965ece22816671b84aa7fd87ee\AndroidManifest.xml:20:5-44
+INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml
+INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\university\term_4\PP - Project Practice\MarketMap\android\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\ef16d8e54d0a9fd847f3e1baaf923198\AndroidManifest.xml:23:5-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\ef16d8e54d0a9fd847f3e1baaf923198\AndroidManifest.xml:23:22-76
+uses-permission#android.permission.INTERNET
+ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\ef16d8e54d0a9fd847f3e1baaf923198\AndroidManifest.xml:24:5-67
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\ef16d8e54d0a9fd847f3e1baaf923198\AndroidManifest.xml:24:22-64
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\ef16d8e54d0a9fd847f3e1baaf923198\AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\ef16d8e54d0a9fd847f3e1baaf923198\AndroidManifest.xml:27:9-41
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\ef16d8e54d0a9fd847f3e1baaf923198\AndroidManifest.xml:28:9-32
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\40a2141daeff1127f21ae8d9fbb562fa\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\40a2141daeff1127f21ae8d9fbb562fa\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\40a2141daeff1127f21ae8d9fbb562fa\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\40a2141daeff1127f21ae8d9fbb562fa\AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\6c63bec6500ff0b7c9a89ddb10a9d85a\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\6c63bec6500ff0b7c9a89ddb10a9d85a\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\6c63bec6500ff0b7c9a89ddb10a9d85a\AndroidManifest.xml:24:13-58
