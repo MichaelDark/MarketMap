@@ -1,24 +1,19 @@
 package ua.nure.marketmap;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Pair;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
 
-public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.ViewHolder> {
-    private List<Pair<Integer, String>> mDataset;
+import ua.nure.marketmap.Model.Outlet;
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
+public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.ViewHolder> {
+    private List<Outlet> mDataset;
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
         public LinearLayout mItem;
         public ViewHolder(LinearLayout v) {
             super(v);
@@ -26,41 +21,26 @@ public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.Vi
         }
     }
 
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public FavouritesAdapter(List<Pair<Integer, String>> myDataset) {
+    public FavouritesAdapter(List<Outlet> myDataset) {
         mDataset = myDataset;
     }
 
-    // Create new views (invoked by the layout manager)
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType) {
-        // create a new view
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LinearLayout v = (LinearLayout) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fav_item, parent, false);
-
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
         TextView viewName = (TextView) holder.mItem.findViewById(R.id.fav_name);
-        viewName.setText(mDataset.get(position).second);
-
-        ImageButton viewButton = (ImageButton) holder.mItem.findViewById(R.id.fav_remove);
-        viewButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO remove favourite
-            }
-        });
+        TextView viewCat = (TextView) holder.mItem.findViewById(R.id.fav_cat);
+        viewName.setText(mDataset.get(position).getName());
+        viewCat.setText(mDataset.get(position).Categories.get(0).getName());
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return mDataset.size();

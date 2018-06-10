@@ -4,17 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:gravity="start">
+    android:background="@drawable/black_border"
+    android:gravity="start"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/fav_name"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_margin="@dimen/fav_text_margin"
         android:fontFamily="sans-serif-condensed"
         android:padding="10dp"
         android:text="Name"
+        android:textAlignment="textStart"
         android:textSize="18sp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
@@ -22,13 +24,13 @@
     <TextView
         android:id="@+id/fav_cat"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="25dp"
         android:layout_marginBottom="@dimen/fav_text_margin"
         android:layout_marginLeft="@dimen/fav_text_margin"
         android:layout_marginRight="@dimen/fav_text_margin"
         android:fontFamily="sans-serif-condensed"
         android:paddingLeft="10dp"
-        android:paddingTop="5dp"
+        android:paddingTop="3dp"
         android:text="Cat"
         android:textSize="14sp"
         tools:layout_editor_absoluteX="0dp"
