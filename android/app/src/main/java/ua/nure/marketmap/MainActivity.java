@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -25,14 +27,14 @@ public class MainActivity extends AppCompatActivity
 
     private GoogleMap mMap;
     private Menu mMenu;
-    private Integer mUserId;
+    private int mUserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mUserId = null;
+        mUserId = -1;
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -63,6 +65,16 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data == null) {return;}
+        mUserId = data.getIntExtra("id", -1);
+        String name = data.getStringExtra("name");
+        TextView headerNavBar = (TextView) findViewById(R.id.nav_username);
+        headerNavBar.setText(name);
+        Snackbar.make((View)headerNavBar, "Logged in as " + name, Snackbar.LENGTH_SHORT).show();
+    }
+
+    @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
@@ -81,36 +93,25 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        mMenu = menu;
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_favourites) {
+        if (id == R.id.nav_login) {
+            if(mUserId == -1) {
+                item.setTitle(R.string.action_log_out);
+                Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivityForResult(loginActivity, 1);
+            } else {
+                mUserId = -1;
+                item.setTitle(R.string.action_log_in);
+                TextView headerNavBar = (TextView) findViewById(R.id.nav_username);
+                headerNavBar.setText("Guest");
+                Snackbar.make((View)headerNavBar, "Logged out", Snackbar.LENGTH_SHORT).show();
+            }
+        } else if (id == R.id.nav_favourites) {
             Intent favourites = new Intent(this, FavouritesActivity.class);
             favourites.putExtra("id", mUserId);
             startActivity(favourites);
