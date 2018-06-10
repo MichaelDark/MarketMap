@@ -1,7 +1,18 @@
 package ua.nure.marketmap;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Icon;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -13,40 +24,70 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polygon;
+import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.maps.android.clustering.Cluster;
+import com.google.maps.android.clustering.ClusterItem;
+import com.google.maps.android.clustering.ClusterManager;
+import com.google.maps.android.clustering.view.DefaultClusterRenderer;
+import com.google.maps.android.ui.IconGenerator;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
-    private GoogleMap mMap;
+import ua.nure.marketmap.Controller.DBHelper;
+import ua.nure.marketmap.Model.Color;
+import ua.nure.marketmap.Model.IconMarker;
+import ua.nure.marketmap.Model.Outlet;
+
+public class MainActivity extends AppCompatActivity implements
+        NavigationView.OnNavigationItemSelectedListener,
+        OnMapReadyCallback,
+        ClusterManager.OnClusterClickListener<IconMarker>,
+        ClusterManager.OnClusterInfoWindowClickListener<IconMarker>,
+        ClusterManager.OnClusterItemClickListener<IconMarker>,
+        ClusterManager.OnClusterItemInfoWindowClickListener<IconMarker> {
+
+    private OutletLoadTask mOutletLoadTask;
+    private ProgressBar mProgressView;
     private Menu mMenu;
+
     private int mUserId;
+    private List<Outlet> mOutlets;
+
+    private ClusterManager<IconMarker> mClusterManager;
+    private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mOutletLoadTask = null;
+        mOutlets = new ArrayList<Outlet>();
+        mProgressView = (ProgressBar) findViewById(R.id.outlet_load_progress);
         mUserId = -1;
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -81,6 +122,19 @@ public class MainActivity extends AppCompatActivity
         // Add a marker in Sydney and move the camera
         LatLng kharkiv = new LatLng(49.989651, 36.275175);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kharkiv, 10.4F));
+
+        mClusterManager = new ClusterManager<IconMarker>(this, mMap);
+        mClusterManager.setRenderer(new PersonRenderer());
+        mMap.setOnCameraIdleListener(mClusterManager);
+        mMap.setOnMarkerClickListener(mClusterManager);
+        mMap.setOnInfoWindowClickListener(mClusterManager);
+        mClusterManager.setOnClusterClickListener(this);
+        mClusterManager.setOnClusterInfoWindowClickListener(this);
+        mClusterManager.setOnClusterItemClickListener(this);
+        mClusterManager.setOnClusterItemInfoWindowClickListener(this);
+
+        mOutletLoadTask = new OutletLoadTask();
+        mOutletLoadTask.execute((Void) null);
     }
 
     @Override
@@ -108,7 +162,7 @@ public class MainActivity extends AppCompatActivity
                 mUserId = -1;
                 item.setTitle(R.string.action_log_in);
                 TextView headerNavBar = (TextView) findViewById(R.id.nav_username);
-                headerNavBar.setText("Guest");
+                headerNavBar.setText(R.string.guest_name);
                 Snackbar.make((View)headerNavBar, "Logged out", Snackbar.LENGTH_SHORT).show();
             }
         } else if (id == R.id.nav_favourites) {
@@ -122,5 +176,178 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showProgress(final boolean show) {
+        int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+        mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+        mProgressView.animate().setDuration(shortAnimTime).alpha(
+                show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            }
+        });
+    }
+
+    private void showOutlets() {
+        for(Outlet outlet : mOutlets) {
+            PolygonOptions outletOutline = new PolygonOptions();
+            for(LatLng point : outlet.Points) {
+                outletOutline.add(point);
+            }
+
+            mClusterManager.addItem(new IconMarker(outlet));
+
+            /*mMap.addMarker(new MarkerOptions()
+                    .icon(outlet.getCategoryBitmap())
+                    .position(outlet.getCenter())
+                    .title(outlet.getName()));*/
+
+            outletOutline.strokeColor(Color.outlineColor());
+            outletOutline.fillColor(outlet.getColor());
+            outletOutline.strokeWidth(1F);
+            outletOutline.clickable(false);
+            outletOutline.visible(true);
+
+            mMap.addPolygon(outletOutline).setTag(outlet);
+        }
+
+        mClusterManager.cluster();
+    }
+
+    private class PersonRenderer extends DefaultClusterRenderer<IconMarker> {
+        private final IconGenerator mIconGenerator = new IconGenerator(getApplicationContext());
+        private final IconGenerator mClusterIconGenerator = new IconGenerator(getApplicationContext());
+        private final ImageView mImageView;
+        private final ImageView mClusterImageView;
+        private final int mDimension;
+
+        public PersonRenderer() {
+            super(getApplicationContext(), mMap, mClusterManager);
+
+            View multiProfile = getLayoutInflater().inflate(R.layout.multi_outlet, null);
+            mClusterIconGenerator.setContentView(multiProfile);
+            mClusterImageView = (ImageView) multiProfile.findViewById(R.id.image);
+
+            mImageView = new ImageView(getApplicationContext());
+            mDimension = (int) getResources().getDimension(R.dimen.custom_profile_image);
+            mImageView.setLayoutParams(new ViewGroup.LayoutParams(mDimension, mDimension));
+            int padding = (int) getResources().getDimension(R.dimen.custom_profile_padding);
+            mImageView.setPadding(padding, padding, padding, padding);
+            mIconGenerator.setContentView(mImageView);
+        }
+
+        @Override
+        protected void onBeforeClusterItemRendered(IconMarker person, MarkerOptions markerOptions) {
+            // Draw a single person.
+            // Set the info window to show their name.
+            mImageView.setImageResource(person.getIcon());
+            Bitmap icon = mIconGenerator.makeIcon();
+            markerOptions.icon(BitmapDescriptorFactory.fromBitmap(icon)).title(person.getTitle());
+        }
+
+        @Override
+        protected void onBeforeClusterRendered(Cluster<IconMarker> cluster, MarkerOptions markerOptions) {
+            // Draw multiple people.
+            // Note: this method runs on the UI thread. Don't spend too much time in here (like in this example).
+            List<Drawable> outletIcons = new ArrayList<Drawable>(Math.min(4, cluster.getSize()));
+            int width = mDimension;
+            int height = mDimension;
+
+            for (IconMarker p : cluster.getItems()) {
+                // Draw 4 at most.
+                if (outletIcons.size() == 4) break;
+                Drawable drawable = getResources().getDrawable(p.getIcon());
+                drawable.setBounds(0, 0, width, height);
+                outletIcons.add(drawable);
+            }
+            MultiDrawable multiDrawable = new MultiDrawable(outletIcons);
+            multiDrawable.setBounds(0, 0, width, height);
+
+            mClusterImageView.setImageDrawable(multiDrawable);
+            Bitmap icon = mClusterIconGenerator.makeIcon(String.valueOf(cluster.getSize()));
+            markerOptions.icon(BitmapDescriptorFactory.fromBitmap(icon));
+        }
+
+        @Override
+        protected boolean shouldRenderAsCluster(Cluster cluster) {
+            // Always render clusters.
+            return cluster.getSize() > 1;
+        }
+    }
+
+    @Override
+    public boolean onClusterClick(Cluster<IconMarker> cluster) {
+
+        LatLngBounds.Builder builder = LatLngBounds.builder();
+        for (ClusterItem item : cluster.getItems()) {
+            builder.include(item.getPosition());
+        }
+        // Get the LatLngBounds
+        final LatLngBounds bounds = builder.build();
+
+        // Animate camera to the bounds
+        try {
+            mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 100));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return true;
+    }
+
+    @Override
+    public void onClusterInfoWindowClick(Cluster<IconMarker> cluster) {
+        // Does nothing, but you could go to a list of the users.
+    }
+
+    @Override
+    public boolean onClusterItemClick(IconMarker item) {
+        // Does nothing, but you could go into the user's profile page, for example.
+        return false;
+    }
+
+    @Override
+    public void onClusterItemInfoWindowClick(IconMarker item) {
+        // Does nothing, but you could go into the user's profile page, for example.
+    }
+
+    public class OutletLoadTask extends AsyncTask<Void, Void, List<Outlet>> {
+        OutletLoadTask() {
+        }
+
+        @Override
+        protected void onPreExecute() {
+            showProgress(true);
+        }
+
+        @Override
+        protected List<Outlet> doInBackground(Void... params) {
+            // TODO: attempt outlets loading.
+            try {
+                Thread.sleep(3000);
+            } catch (Exception e) {}
+           return DBHelper.getOutlets();
+        }
+
+        @Override
+        protected void onPostExecute(final List<Outlet> outlets) {
+            mOutletLoadTask = null;
+            showProgress(false);
+
+            if (!outlets.isEmpty()) {
+                mOutlets = outlets;
+                showOutlets();
+            } else {
+                Snackbar.make((View)mProgressView, "Cannot load outlets", Snackbar.LENGTH_SHORT).show();
+            }
+        }
+
+        @Override
+        protected void onCancelled() {
+            mOutletLoadTask = null;
+            showProgress(false);
+        }
     }
 }

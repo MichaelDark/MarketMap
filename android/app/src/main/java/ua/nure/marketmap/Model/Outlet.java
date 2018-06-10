@@ -1,17 +1,22 @@
 package ua.nure.marketmap.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ua.nure.marketmap.R;
 
 public class Outlet {
     private int Id;
     private Double Rating;
     private String Name;
     private String Address;
-
-    public Color Color() { return Color.defaultColor(); }
 
     public List<LatLng> Points;
     public List<Category> Categories;
@@ -57,4 +62,78 @@ public class Outlet {
     public void setAddress(String address) {
         Address = address;
     }
+
+    public Color getArgbColor() { return Color.defaultColor(); }
+    public int getColor() { return Color.getFromARGB(Color.defaultColor()); }
+
+    public void addPoint(double lat, double lng) {
+        Points.add(new LatLng(lat, lng));
+    }
+    public void addPoint(LatLng point) {
+        Points.add(point);
+    }
+    public int getPointsCount() {
+        return Points.size();
+    };
+    public LatLng getPoint(int index) {
+        return Points.get(index);
+    };
+    public LatLng getCenter() {
+        double latLow = 360;
+        double lngLow = 360;
+        double latHigh = -1;
+        double lngHigh = -1;
+
+        for(LatLng point : Points) {
+            double lat = point.latitude;
+            double lng = point.longitude;
+
+            if(lat > latHigh) {
+                latHigh = lat;
+            } else if(lat < latLow) {
+                latLow = lat;
+            }
+
+            if(lng > lngHigh) {
+                lngHigh = lng;
+            } else if(lng < lngLow) {
+                lngLow = lng;
+            }
+        }
+
+        return new LatLng(latLow + ((latHigh - latLow) / 2), lngLow + ((lngHigh - lngLow) / 2));
+    };
+
+    public void addCategory(Category cat) {
+        Categories.add(cat);
+    }
+    public int getCategoriesCount() {
+        return Categories.size();
+    };
+    public Category getCategory(int index) {
+        return Categories.get(index);
+    };
+
+    public BitmapDescriptor getCategoryBitmap() {
+        if(Categories.size() == 1) {
+            //todo category pictures
+        }
+        return BitmapDescriptorFactory.fromResource(getCategoryIcon());
+    }
+    public int getCategoryIcon() {
+        if(Categories.size() == 1) {
+            //todo category icons
+        }
+        return R.drawable.ic_cat_all;
+    }
+
+    public void addComment(Comment comment) {
+        Comments.add(comment);
+    }
+    public int getCommentsCount() {
+        return Comments.size();
+    };
+    public Comment getComments(int index) {
+        return Comments.get(index);
+    };
 }
