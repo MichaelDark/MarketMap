@@ -115,16 +115,10 @@ public class Outlet {
     };
 
     public BitmapDescriptor getCategoryBitmap() {
-        if(Categories.size() == 1) {
-            //todo category pictures
-        }
         return BitmapDescriptorFactory.fromResource(getCategoryIcon());
     }
     public int getCategoryIcon() {
-        if(Categories.size() == 1) {
-            //todo category icons
-        }
-        return R.drawable.ic_cat_all;
+        return Categories.get(0).getIconId();
     }
 
     public void addComment(Comment comment) {

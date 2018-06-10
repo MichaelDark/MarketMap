@@ -1,5 +1,7 @@
 package ua.nure.marketmap.Model;
 
+import android.content.Context;
+
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 
@@ -7,13 +9,23 @@ import ua.nure.marketmap.R;
 
 public class Category {
     private Color Color;
+    private int Id;
+    private int IconId;
     private String Name;
 
-    public Category(Color color, String name) {
+    public Category(int id, Color color, String name, int iconId) {
+        Id = id;
+        IconId = iconId;
         Color = color;
         Name = name;
     }
 
+    public int getId() {
+        return Id;
+    }
+    public void setId(int id) {
+        Id = id;
+    }
     public Color getColor() {
         return Color;
     }
@@ -26,4 +38,11 @@ public class Category {
     public void setName(String name) {
         Name = name;
     }
+    public int getIconId() {
+        return IconId;
+    }
+    public void setIconId(int iconId) {
+        IconId = iconId;
+    }
 }
+

@@ -2,18 +2,12 @@ package ua.nure.marketmap;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.Icon;
+import android.opengl.Visibility;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -28,18 +22,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.maps.android.clustering.Cluster;
 import com.google.maps.android.clustering.ClusterItem;
@@ -48,12 +39,10 @@ import com.google.maps.android.clustering.view.DefaultClusterRenderer;
 import com.google.maps.android.ui.IconGenerator;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 import ua.nure.marketmap.Controller.DBHelper;
+import ua.nure.marketmap.Model.CategoriesList;
 import ua.nure.marketmap.Model.Color;
 import ua.nure.marketmap.Model.IconMarker;
 import ua.nure.marketmap.Model.Outlet;
@@ -67,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements
         ClusterManager.OnClusterItemInfoWindowClickListener<IconMarker> {
 
     private OutletLoadTask mOutletLoadTask;
+    private NavigationView mNavigationView;
     private ProgressBar mProgressView;
     private Menu mMenu;
 
@@ -86,6 +76,8 @@ public class MainActivity extends AppCompatActivity implements
         mProgressView = (ProgressBar) findViewById(R.id.outlet_load_progress);
         mUserId = -1;
 
+        CategoriesList.init(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -95,8 +87,9 @@ public class MainActivity extends AppCompatActivity implements
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        mNavigationView.setNavigationItemSelectedListener(this);
+
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -156,11 +149,13 @@ public class MainActivity extends AppCompatActivity implements
         if (id == R.id.nav_login) {
             if(mUserId == -1) {
                 item.setTitle(R.string.action_log_out);
+                mNavigationView.getMenu().findItem(R.id.nav_favourites).setVisible(true);
                 Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivityForResult(loginActivity, 1);
             } else {
                 mUserId = -1;
                 item.setTitle(R.string.action_log_in);
+                mNavigationView.getMenu().findItem(R.id.nav_favourites).setVisible(false);
                 TextView headerNavBar = (TextView) findViewById(R.id.nav_username);
                 headerNavBar.setText(R.string.guest_name);
                 Snackbar.make((View)headerNavBar, "Logged out", Snackbar.LENGTH_SHORT).show();
@@ -304,8 +299,9 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public boolean onClusterItemClick(IconMarker item) {
-        // Does nothing, but you could go into the user's profile page, for example.
-        return false;
+        Intent outlet = new Intent(this, OutletActivity.class);
+        startActivityForResult(outlet, 1);
+        return true;
     }
 
     @Override
