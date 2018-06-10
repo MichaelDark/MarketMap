@@ -12,36 +12,48 @@ import ua.nure.marketmap.Model.Outlet;
 
 public class DBHelper {
     public static List<Outlet> getFavorites(int id) {
+        return getOutlets();
+        /*
         return Arrays.asList(
-                new Outlet(1, 4.7, "У Ашота", "пр. Гагарина 36", CategoriesList.getCategory(7)),
-                new Outlet(2, 3.9, "Наливочка", "пр. Гагарина 36А", CategoriesList.getCategory(7))
-        );
+                new Outlet(1, 4.7, "У Ашота", "пр. Гагарина 36", "8:00 - 19:00", CategoriesList.getCategory(7)),
+                new Outlet(2, 3.9, "Наливочка", "пр. Гагарина 36А", "8:00 - 19:00", CategoriesList.getCategory(7))
+        );*/
     }
 
     public static List<Outlet> getOutlets() {
-        Outlet o01 = new Outlet(1, 4.7, "У Ашота", "пр. Тракторстроителей 128", CategoriesList.getCategory(7));
+        Outlet o01 = new Outlet(1, 4.7, "У Ашота", "пр. Тракторстроителей 128", "8:00 - 19:00", CategoriesList.getCategory(7));
         o01.addPoint(50.010566, 36.350756);
         o01.addPoint(50.010592, 36.350788);
         o01.addPoint(50.010574, 36.350835);
         o01.addPoint(50.010545, 36.350800);
 
-        Outlet o02 = new Outlet(2, 3.9, "Наливочка", "пр. Тракторстроителей 128", CategoriesList.getCategory(7));
+        Outlet o02 = new Outlet(2, 3.9, "Наливочка", "пр. Тракторстроителей 128", "7:00 - 18:00", CategoriesList.getCategory(7));
         o02.addPoint(50.010592, 36.350788);
         o02.addPoint(50.010574, 36.350835);
         o02.addPoint(50.010592, 36.350858);
         o02.addPoint(50.010614, 36.350816);
 
-        Outlet o03 = new Outlet(3, 4.3, "Все по 5", "пр. Тракторстроителей 128", CategoriesList.getCategory(3));
+        Outlet o03 = new Outlet(3, 4.3, "Все по 5", "пр. Тракторстроителей 128", "6:30 - 20:00", CategoriesList.getCategory(3));
         o03.addPoint(50.010647, 36.350234);
         o03.addPoint(50.010704, 36.350312);
         o03.addPoint(50.010672, 36.350366);
         o03.addPoint(50.010618, 36.350292);
+        o03.setFavourite(true);
 
         return Arrays.asList(
                 o01,
                 o02,
                 o03
         );
+    }
+    public static Outlet getOutletById(int id) {
+        List<Outlet> outlets = getOutlets();
+
+        for(Outlet outlet : outlets)
+            if(outlet.getId() == id)
+                return outlet;
+
+        return null;
     }
 
     public static int getUser(String email, String password) {

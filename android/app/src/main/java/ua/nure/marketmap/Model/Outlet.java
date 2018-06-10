@@ -14,26 +14,30 @@ import ua.nure.marketmap.R;
 
 public class Outlet {
     private int Id;
+    private boolean Favourite;
     private Double Rating;
     private String Name;
     private String Address;
+    private String Description;
 
     public List<LatLng> Points;
     public List<Category> Categories;
     public List<Comment> Comments;
 
-    public Outlet(int id, Double rating, String name, String address) {
+    private Outlet(int id, Double rating, String name, String address, String description) {
         Id = id;
         Rating = rating;
         Name = name;
         Address = address;
+        Description = description;
+
         Points = new ArrayList<>();
         Categories = new ArrayList<>();
         Comments = new ArrayList<>();
     }
 
-    public Outlet(int id, Double rating, String name, String address, Category category) {
-        this(id, rating, name, address);
+    public Outlet(int id, Double rating, String name, String address, String description, Category category) {
+        this(id, rating, name, address, description);
         Categories = new ArrayList<>();
         Categories.add(category);
     }
@@ -43,6 +47,12 @@ public class Outlet {
     }
     public void setId(int id) {
         Id = id;
+    }
+    public boolean isFavourite() {
+        return Favourite;
+    }
+    public void setFavourite(boolean favourite) {
+        Favourite = favourite;
     }
     public Double getRating() {
         return Rating;
@@ -62,9 +72,15 @@ public class Outlet {
     public void setAddress(String address) {
         Address = address;
     }
+    public String getDescription() {
+        return Description;
+    }
+    public void setDescription(String description) {
+        Description = description;
+    }
 
-    public Color getArgbColor() { return Color.defaultColor(); }
-    public int getColor() { return Color.getFromARGB(Color.defaultColor()); }
+    public Color getArgbColor() { return Categories.get(0).getColor(); }
+    public int getColor() { return Color.getFromARGB(Categories.get(0).getColor()); }
 
     public void addPoint(double lat, double lng) {
         Points.add(new LatLng(lat, lng));
@@ -129,5 +145,6 @@ public class Outlet {
     };
     public Comment getComments(int index) {
         return Comments.get(index);
-    };
+    }
+
 }

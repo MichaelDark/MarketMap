@@ -46,6 +46,7 @@ import ua.nure.marketmap.Model.CategoriesList;
 import ua.nure.marketmap.Model.Color;
 import ua.nure.marketmap.Model.IconMarker;
 import ua.nure.marketmap.Model.Outlet;
+import ua.nure.marketmap.Model.User;
 
 public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener,
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements
     private ProgressBar mProgressView;
     private Menu mMenu;
 
-    private int mUserId;
+    private User mUser;
     private List<Outlet> mOutlets;
 
     private ClusterManager<IconMarker> mClusterManager;
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements
         mOutletLoadTask = null;
         mOutlets = new ArrayList<Outlet>();
         mProgressView = (ProgressBar) findViewById(R.id.outlet_load_progress);
-        mUserId = -1;
+        mUser = User.GUEST;
 
         CategoriesList.init(this);
 
@@ -101,8 +102,8 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data == null) {return;}
-        mUserId = data.getIntExtra("id", -1);
-        String name = data.getStringExtra("name");
+        mUser = (User) data.getParcelableExtra("user");
+        String name = mUser.getEmail();
         TextView headerNavBar = (TextView) findViewById(R.id.nav_username);
         headerNavBar.setText(name);
         Snackbar.make((View)headerNavBar, "Logged in as " + name, Snackbar.LENGTH_SHORT).show();
@@ -147,13 +148,13 @@ public class MainActivity extends AppCompatActivity implements
         int id = item.getItemId();
 
         if (id == R.id.nav_login) {
-            if(mUserId == -1) {
+            if(mUser.equals(User.GUEST)) {
                 item.setTitle(R.string.action_log_out);
                 mNavigationView.getMenu().findItem(R.id.nav_favourites).setVisible(true);
                 Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivityForResult(loginActivity, 1);
             } else {
-                mUserId = -1;
+                mUser = User.GUEST;
                 item.setTitle(R.string.action_log_in);
                 mNavigationView.getMenu().findItem(R.id.nav_favourites).setVisible(false);
                 TextView headerNavBar = (TextView) findViewById(R.id.nav_username);
@@ -161,9 +162,9 @@ public class MainActivity extends AppCompatActivity implements
                 Snackbar.make((View)headerNavBar, "Logged out", Snackbar.LENGTH_SHORT).show();
             }
         } else if (id == R.id.nav_favourites) {
-            Intent favourites = new Intent(this, FavouritesActivity.class);
-            favourites.putExtra("id", mUserId);
-            startActivity(favourites);
+            Intent favourites = new Intent(getApplicationContext(), FavouritesActivity.class);
+            favourites.putExtra("user", mUser);
+            startActivityForResult(favourites, 2);
         } else {
             //TODO switch categories filtering
         }
@@ -299,7 +300,8 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public boolean onClusterItemClick(IconMarker item) {
-        Intent outlet = new Intent(this, OutletActivity.class);
+        Intent outlet = new Intent(getApplicationContext(), OutletActivity.class);
+        outlet.putExtra("outlet", item.getOutlet().getId());
         startActivityForResult(outlet, 1);
         return true;
     }

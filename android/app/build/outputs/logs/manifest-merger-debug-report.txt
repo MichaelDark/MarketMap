@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-60:12
-INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-60:12
-INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-60:12
-INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-60:12
+ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-59:12
+INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-59:12
+INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-59:12
+INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-59:12
 MERGED from [com.android.support:design:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\e9415c298961abe84c364bffdb308e37\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\835561a93cabf930eee176ac8f822f67\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\803b4c2b301c7ab52b60472bc200210f\AndroidManifest.xml:17:1-32:12
@@ -26,20 +26,20 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Mykhailo Temno
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\077e354ed8377490e1505ef72b3a0ccc\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\59e5a1f24b799707c9817f2839a70c6b\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\4d1235621788aaaabc5f698f90327f0a\AndroidManifest.xml:17:1-22:12
-INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-60:12
-INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-60:12
-INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-60:12
+INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-59:12
+INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-59:12
+INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-59:12
 	package
 		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:3:5-32
 		INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml
 		INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml
-		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-60:12
+		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-59:12
 		INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml
-		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-60:12
+		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:1-59:12
 		INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:2:11-69
@@ -72,7 +72,7 @@ ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:17:5
 	android:name
 		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:17:22-69
 application
-ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:19:5-58:19
+ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:19:5-57:19
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\803b4c2b301c7ab52b60472bc200210f\AndroidManifest.xml:30:5-20
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\803b4c2b301c7ab52b60472bc200210f\AndroidManifest.xml:30:5-20
 MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Mykhailo Temnokhud\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\b7b8843d4c963ddfee47dda247b98f4f\AndroidManifest.xml:22:5-27:19
@@ -122,35 +122,33 @@ ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:37:9
 	android:name
 		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:38:13-58
 activity#ua.nure.marketmap.FavouritesActivity
-ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:41:9-44:58
-	android:parentActivityName
-		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:44:13-55
+ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:41:9-43:42
 	android:label
 		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:43:13-39
 	android:name
 		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:42:13-47
 activity#ua.nure.marketmap.LoginActivity
-ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:45:9-52:20
+ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:44:9-51:20
 	android:parentActivityName
-		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:48:13-55
+		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:47:13-55
 	android:label
-		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:47:13-57
+		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:46:13-57
 	android:name
-		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:46:13-42
+		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:45:13-42
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:49:13-51:66
+ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:48:13-50:66
 	android:value
-		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:51:17-63
-	android:name
 		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:50:17-63
-activity#ua.nure.marketmap.OutletActivity
-ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:53:9-57:20
-	android:label
-		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:55:13-58
-	android:theme
-		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:56:13-56
 	android:name
-		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:54:13-43
+		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:49:17-63
+activity#ua.nure.marketmap.OutletActivity
+ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:52:9-56:20
+	android:label
+		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:54:13-58
+	android:theme
+		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:55:13-56
+	android:name
+		ADDED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml:53:13-43
 uses-sdk
 INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\university\marketmap\android\app\src\main\AndroidManifest.xml

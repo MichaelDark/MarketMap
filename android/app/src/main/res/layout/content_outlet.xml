@@ -8,10 +8,28 @@
     tools:context=".OutletActivity"
     tools:showIn="@layout/activity_outlet">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+        android:gravity="start"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/outlet_text_categories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin" />
+
+        <TextView
+            android:id="@+id/outlet_text_desciption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:text="@string/large_text" />
+
+        <include layout="@layout/comments" />
+
+    </LinearLayout>
+
 
 </android.support.v4.widget.NestedScrollView>

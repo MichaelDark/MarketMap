@@ -1,5 +1,8 @@
 package ua.nure.marketmap.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 public class Color {
     public double A;
     public int R;
@@ -11,6 +14,12 @@ public class Color {
         this.R = R;
         this.G = G;
         this.B = B;
+    }
+    public Color(Parcel in) {
+        this.A = in.readDouble();
+        this.R = in.readInt();
+        this.G = in.readInt();
+        this.B = in.readInt();
     }
 
     public static Color defaultColor() { return new Color (1.0,102,153, 255); }

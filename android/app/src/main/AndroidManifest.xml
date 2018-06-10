@@ -40,8 +40,7 @@
 
         <activity
             android:name=".FavouritesActivity"
-            android:label="Favourites"
-            android:parentActivityName=".MainActivity" />
+            android:label="Favourites" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"

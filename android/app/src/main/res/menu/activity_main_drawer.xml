@@ -26,7 +26,7 @@
                 <item
                     android:id="@+id/nav_cat_all"
                     android:icon="@drawable/ic_cat_all"
-                    android:title="@string/cat_clothes"/>
+                    android:title="@string/cat_all"/>
                 <item
                     android:id="@+id/nav_cat_clothes"
                     android:icon="@drawable/ic_cat_clothes"

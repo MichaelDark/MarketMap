@@ -1,5 +1,8 @@
 package ua.nure.marketmap.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 public class Comment {
     private int ID;
     private String Text;

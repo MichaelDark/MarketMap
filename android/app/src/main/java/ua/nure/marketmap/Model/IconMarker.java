@@ -11,6 +11,9 @@ public class IconMarker implements ClusterItem {
         mOutlet = outlet;
     }
 
+    public Outlet getOutlet() {
+        return mOutlet;
+    }
     public LatLng getPosition() {
         return mOutlet.getCenter();
     }

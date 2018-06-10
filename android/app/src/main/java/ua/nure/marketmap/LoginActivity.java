@@ -30,10 +30,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.net.UnknownServiceException;
 import java.util.ArrayList;
 import java.util.List;
 
 import ua.nure.marketmap.Controller.DBHelper;
+import ua.nure.marketmap.Model.User;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -215,8 +217,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (success) {
                 Intent intent = new Intent();
-                intent.putExtra("name", mEmail);
-                intent.putExtra("id", mUserId);
+                intent.putExtra("user", new User(mUserId, mEmail));
                 setResult(RESULT_OK, intent);
                 finish();
             } else {

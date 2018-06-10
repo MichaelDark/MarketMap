@@ -1,11 +1,8 @@
 package ua.nure.marketmap.Model;
 
-import android.content.Context;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-
-import ua.nure.marketmap.R;
 
 public class Category {
     private Color Color;
