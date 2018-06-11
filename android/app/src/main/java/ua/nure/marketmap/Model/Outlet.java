@@ -129,6 +129,12 @@ public class Outlet {
     public Category getCategory(int index) {
         return Categories.get(index);
     };
+    public boolean hasCategory(Category inCategory) {
+        for(Category category : Categories)
+            if(inCategory.getId() == category.getId())
+                return true;
+        return false;
+    }
 
     public BitmapDescriptor getCategoryBitmap() {
         return BitmapDescriptorFactory.fromResource(getCategoryIcon());

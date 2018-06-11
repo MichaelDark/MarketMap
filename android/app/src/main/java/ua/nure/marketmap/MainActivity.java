@@ -5,7 +5,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
-import android.opengl.Visibility;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -43,6 +42,7 @@ import java.util.List;
 
 import ua.nure.marketmap.Controller.DBHelper;
 import ua.nure.marketmap.Model.CategoriesList;
+import ua.nure.marketmap.Model.Category;
 import ua.nure.marketmap.Model.Color;
 import ua.nure.marketmap.Model.IconMarker;
 import ua.nure.marketmap.Model.Outlet;
@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private User mUser;
     private List<Outlet> mOutlets;
+    private Category mSelectedCategory;
 
     private ClusterManager<IconMarker> mClusterManager;
     private GoogleMap mMap;
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements
         mOutlets = new ArrayList<Outlet>();
         mProgressView = (ProgressBar) findViewById(R.id.outlet_load_progress);
         mUser = User.GUEST;
-
+        mSelectedCategory = null;
         CategoriesList.init(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -144,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        boolean isCategory = false;
         int id = item.getItemId();
 
         if (id == R.id.nav_login) {
@@ -165,8 +166,58 @@ public class MainActivity extends AppCompatActivity implements
             Intent favourites = new Intent(getApplicationContext(), FavouritesActivity.class);
             favourites.putExtra("user", mUser);
             startActivityForResult(favourites, 2);
-        } else {
-            //TODO switch categories filtering
+        } else if (id == R.id.nav_cat_all) {
+            isCategory = true;
+            mSelectedCategory = null;
+        } else if (id == R.id.nav_cat_clothes) {
+            isCategory = true;
+            mSelectedCategory = CategoriesList.getCategory(0);
+        } else if (id == R.id.nav_child_goods) {
+            isCategory = true;
+            mSelectedCategory = CategoriesList.getCategory(1);
+        } else if (id == R.id.nav_cat_stationery) {
+            isCategory = true;
+            mSelectedCategory = CategoriesList.getCategory(2);
+        } else if (id == R.id.nav_cat_household) {
+            isCategory = true;
+            mSelectedCategory = CategoriesList.getCategory(3);
+        } else if (id == R.id.nav_cat_petshops) {
+            isCategory = true;
+            mSelectedCategory = CategoriesList.getCategory(4);
+        } else if (id == R.id.nav_cat_plants) {
+            isCategory = true;
+            mSelectedCategory = CategoriesList.getCategory(5);
+        } else if (id == R.id.nav_cat_sanitary) {
+            isCategory = true;
+            mSelectedCategory = CategoriesList.getCategory(6);
+        } else if (id == R.id.nav_cat_caffee) {
+            isCategory = true;
+            mSelectedCategory = CategoriesList.getCategory(7);
+        } else if (id == R.id.nav_cat_medicine) {
+            isCategory = true;
+            mSelectedCategory = CategoriesList.getCategory(8);
+        } else if (id == R.id.nav_cat_tobacco) {
+            isCategory = true;
+            mSelectedCategory = CategoriesList.getCategory(9);
+        } else if (id == R.id.nav_cat_dairy) {
+            isCategory = true;
+            mSelectedCategory = CategoriesList.getCategory(10);
+        } else if (id == R.id.nav_cat_meat_fish) {
+            isCategory = true;
+            mSelectedCategory = CategoriesList.getCategory(11);
+        } else if (id == R.id.nav_cat_vegetables_fruits) {
+            isCategory = true;
+            mSelectedCategory = CategoriesList.getCategory(12);
+        } else if (id == R.id.nav_cat_bakery) {
+            isCategory = true;
+            mSelectedCategory = CategoriesList.getCategory(13);
+        } else if (id == R.id.nav_cat_other) {
+            isCategory = true;
+            mSelectedCategory = CategoriesList.getCategory(13);
+        }
+
+        if(isCategory) {
+            showOutlets();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -187,26 +238,30 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void showOutlets() {
-        for(Outlet outlet : mOutlets) {
-            PolygonOptions outletOutline = new PolygonOptions();
-            for(LatLng point : outlet.Points) {
-                outletOutline.add(point);
-            }
+        mClusterManager.clearItems();
 
-            mClusterManager.addItem(new IconMarker(outlet));
+        for(Outlet outlet : mOutlets) {
+            if(mSelectedCategory == null || outlet.hasCategory(mSelectedCategory)) {
+                PolygonOptions outletOutline = new PolygonOptions();
+                for (LatLng point : outlet.Points) {
+                    outletOutline.add(point);
+                }
+
+                mClusterManager.addItem(new IconMarker(outlet));
 
             /*mMap.addMarker(new MarkerOptions()
                     .icon(outlet.getCategoryBitmap())
                     .position(outlet.getCenter())
                     .title(outlet.getName()));*/
 
-            outletOutline.strokeColor(Color.outlineColor());
-            outletOutline.fillColor(outlet.getColor());
-            outletOutline.strokeWidth(1F);
-            outletOutline.clickable(false);
-            outletOutline.visible(true);
+                outletOutline.strokeColor(Color.outlineColor());
+                outletOutline.fillColor(outlet.getColor());
+                outletOutline.strokeWidth(1F);
+                outletOutline.clickable(false);
+                outletOutline.visible(true);
 
-            mMap.addPolygon(outletOutline).setTag(outlet);
+                mMap.addPolygon(outletOutline).setTag(outlet);
+            }
         }
 
         mClusterManager.cluster();
