@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/nav_search"
+        android:icon="@drawable/ic_search"
+        android:title="Search" />
+    <item
+        android:id="@+id/nav_login"
+        android:icon="@drawable/ic_login"
+        android:title="Log in" />
+    <item
+        android:id="@+id/nav_favourites"
+        android:icon="@drawable/ic_favourite"
+        android:visible="false"
+        android:title="Favourites" />
+
+    <item
+        android:id="@+id/nav_categories"
+        android:title="Categories">
+
+        <menu
+            android:title="Categories">
+
+            <group
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_cat_all"
+                    android:icon="@drawable/ic_cat_all"
+                    android:title="@string/cat_all"/>
+                <item
+                    android:id="@+id/nav_cat_clothes"
+                    android:icon="@drawable/ic_cat_clothes"
+                    android:title="@string/cat_clothes" />
+                <item
+                    android:id="@+id/nav_child_goods"
+                    android:icon="@drawable/ic_cat_child_goods"
+                    android:title="@string/cat_child_goods" />
+                <item
+                    android:id="@+id/nav_cat_stationery"
+                    android:icon="@drawable/ic_cat_stationery"
+                    android:title="@string/cat_stationery" />
+                <item
+                    android:id="@+id/nav_cat_household"
+                    android:icon="@drawable/ic_cat_household"
+                    android:title="@string/cat_household" />
+                <item
+                    android:id="@+id/nav_cat_petshops"
+                    android:icon="@drawable/ic_cat_petshops"
+                    android:title="@string/cat_petshops" />
+                <item
+                    android:id="@+id/nav_cat_plants"
+                    android:icon="@drawable/ic_cat_plants"
+                    android:title="@string/cat_plants" />
+                <item
+                    android:id="@+id/nav_cat_sanitary"
+                    android:icon="@drawable/ic_cat_sanitary"
+                    android:title="@string/cat_sanitary" />
+                <item
+                    android:id="@+id/nav_cat_caffee"
+                    android:icon="@drawable/ic_cat_caffee"
+                    android:title="@string/cat_caffee" />
+                <item
+                    android:id="@+id/nav_cat_medicine"
+                    android:icon="@drawable/ic_cat_medicine"
+                    android:title="@string/cat_medicine" />
+                <item
+                    android:id="@+id/nav_cat_tobacco"
+                    android:icon="@drawable/ic_cat_tobacco"
+                    android:title="@string/cat_tobacco" />
+                <item
+                    android:id="@+id/nav_cat_dairy"
+                    android:icon="@drawable/ic_cat_dairy"
+                    android:title="@string/cat_dairy" />
+                <item
+                    android:id="@+id/nav_cat_meat_fish"
+                    android:icon="@drawable/ic_cat_meat_fish"
+                    android:title="@string/cat_meat_fish" />
+                <item
+                    android:id="@+id/nav_cat_vegetables_fruits"
+                    android:icon="@drawable/ic_cat_vegetables_fruits"
+                    android:title="@string/cat_vegetables_and_fruits" />
+                <item
+                    android:id="@+id/nav_cat_bakery"
+                    android:icon="@drawable/ic_cat_bakery"
+                    android:title="@string/cat_bakery" />
+                <item
+                    android:id="@+id/nav_cat_other"
+                    android:icon="@drawable/ic_cat_other"
+                    android:title="@string/cat_other" />
+            </group>
+
+        </menu>
+
+    </item>
+
+</menu>
