@@ -60,14 +60,18 @@ public class LoginActivity extends AppCompatActivity {
     private View mLoginFormView;
 
     @Override
+    /*
+    On avtivity (screen) generation actions
+     */
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        setupActionBar();
+        //Default actions
+        super.onCreate(savedInstanceState); //Default onCreate actions
+        setContentView(R.layout.activity_login); //Display content
+        setupActionBar(); //Draw back button
 
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mEmailView = (AutoCompleteTextView) findViewById(R.id.email); //Get email input field
 
-        mPasswordView = (EditText) findViewById(R.id.password);
+        mPasswordView = (EditText) findViewById(R.id.password); //Get password input field
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -77,18 +81,18 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 return false;
             }
-        });
+        }); //Set action on enter on keyboard
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button); //Get submit button
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
             }
-        });
+        }); //Set action on submit
 
-        mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
+        mLoginFormView = findViewById(R.id.login_form); //Get whole login form for hiding while processing
+        mProgressView = findViewById(R.id.login_progress); //Get progress bar for loading action
     }
 
     /**

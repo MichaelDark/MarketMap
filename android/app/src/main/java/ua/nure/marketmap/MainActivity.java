@@ -69,35 +69,38 @@ public class MainActivity extends AppCompatActivity implements
     private GoogleMap mMap;
 
     @Override
+    /*
+    On avtivity (screen) generation actions
+     */
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //Default actions
+        super.onCreate(savedInstanceState); //Default onCreate actions
+        setContentView(R.layout.activity_main); //Display content
 
-        mOutletLoadTask = null;
-        mOutlets = new ArrayList<Outlet>();
-        mProgressView = (ProgressBar) findViewById(R.id.outlet_load_progress);
-        mUser = User.GUEST;
-        mSelectedCategory = null;
-        CategoriesList.init(this);
+        //Initializing local private varibles
+        mOutletLoadTask = null; //Object for loading data
+        mOutlets = new ArrayList<Outlet>(); //List of outlets
+        mProgressView = (ProgressBar) findViewById(R.id.outlet_load_progress); //ProgressBar for loading action
+        mUser = User.GUEST; //Current user (GUEST by default)
+        mSelectedCategory = null; //Selected category (show all if null)
+        CategoriesList.init(this); //Initialize categories
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); //Get top toolbar
+        setSupportActionBar(toolbar); //Attach toolbar to current screen
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout); //Get side menu
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+        drawer.addDrawerListener(toggle); //Make side menu be opennable
+        toggle.syncState(); //Hide by default
 
-        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-        mNavigationView.setNavigationItemSelectedListener(this);
+        mNavigationView = (NavigationView) findViewById(R.id.nav_view); //Get side menu items
+        mNavigationView.setNavigationItemSelectedListener(this); //Set action on click on side menu items
 
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
-
-        //getSupportActionBar().setIcon(R.mipmap.ic_launcher_round);
+                .findFragmentById(R.id.map); //Get map
+        mapFragment.getMapAsync(this); //Load map
     }
 
     @Override
@@ -165,6 +168,9 @@ public class MainActivity extends AppCompatActivity implements
         } else if (id == R.id.nav_favourites) {
             Intent favourites = new Intent(getApplicationContext(), FavouritesActivity.class);
             favourites.putExtra("user", mUser);
+            startActivityForResult(favourites, 2);
+        } else if (id == R.id.nav_search) {
+            Intent favourites = new Intent(getApplicationContext(), SearchActivity.class);
             startActivityForResult(favourites, 2);
         } else if (id == R.id.nav_cat_all) {
             isCategory = true;

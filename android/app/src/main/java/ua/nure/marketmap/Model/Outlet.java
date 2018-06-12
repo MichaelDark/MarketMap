@@ -1,16 +1,11 @@
 package ua.nure.marketmap.Model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import ua.nure.marketmap.R;
 
 public class Outlet {
     private int Id;
@@ -80,7 +75,7 @@ public class Outlet {
     }
 
     public Color getArgbColor() { return Categories.get(0).getColor(); }
-    public int getColor() { return Color.getFromARGB(Categories.get(0).getColor()); }
+    public int getColor() { return Color.getColorIntFromARGB(Categories.get(0).getColor()); }
 
     public void addPoint(double lat, double lng) {
         Points.add(new LatLng(lat, lng));

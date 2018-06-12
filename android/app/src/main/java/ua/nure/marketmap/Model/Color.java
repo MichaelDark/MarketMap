@@ -1,7 +1,6 @@
 package ua.nure.marketmap.Model;
 
 import android.os.Parcel;
-import android.os.Parcelable;
 
 public class Color {
     public double A;
@@ -23,14 +22,21 @@ public class Color {
     }
 
     public static Color defaultColor() { return new Color (1.0,102,153, 255); }
-    public static int outlineColor() { return getFromARGB(new Color (1.0,105,105, 105)); }
+    public static int outlineColor() { return getColorIntFromARGB(new Color (1.0,105,105, 105)); }
 
-    public static int getFromARGB(Color color) {
+    public static int getColorIntFromARGB(Color color) {
         int A = ((int)(color.A * 255) << 24);
         int R = (color.R << 16);
         int G = (color.G << 8);
         int B = color.B;
 
         return A | R | G | B;
+    }
+    public static Color getColorFromRgbHex(int color) {
+        int R = color >> 16;
+        int G = R - color >> 8;
+        int B = (R + G) - color;
+
+        return new Color(1, R, G, B);
     }
 }

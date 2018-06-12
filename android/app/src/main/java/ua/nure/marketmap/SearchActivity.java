@@ -1,44 +1,52 @@
 package ua.nure.marketmap;
 
 import android.content.Intent;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.EditText;
 
-import ua.nure.marketmap.Model.User;
+import java.util.ArrayList;
+import java.util.List;
 
-import static ua.nure.marketmap.Controller.DBHelper.getFavorites;
+import ua.nure.marketmap.Controller.DBHelper;
+import ua.nure.marketmap.Model.Outlet;
 
-public class FavouritesActivity extends AppCompatActivity {
-
+public class SearchActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter<FavouritesAdapter.ViewHolder> mAdapter;
+    private RecyclerView.Adapter<SearchAdapter.ViewHolder> mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private List<Outlet> mOutlets;
 
     @Override
-    /*
-    On avtivity (screen) generation actions
-     */
     protected void onCreate(Bundle savedInstanceState) {
-        //Default actions
         super.onCreate(savedInstanceState); //Default onCreate actions
-        setContentView(R.layout.activity_favourites); //Display content
+        setContentView(R.layout.activity_search); //Display content
+
+        mOutlets = DBHelper.getOutlets();
 
         getSupportActionBar().setDisplayShowHomeEnabled(true); //Show menu button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Set menu button as back button
 
-        showOutlets();
-    }
+        updateOutlets();
 
+        EditText textPlain = (EditText) findViewById(R.id.searchText);
+        textPlain.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                updateOutlets();
+                return false;
+            }
+        });
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        showOutlets();
+        updateOutlets();
     }
 
     @Override
@@ -58,24 +66,23 @@ public class FavouritesActivity extends AppCompatActivity {
         return super.onNavigateUp();
     }
 
-    private void showOutlets() {
-        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view); //Get displayed list of outlets
+    private void updateOutlets() {
+        mRecyclerView = (RecyclerView) findViewById(R.id.my_search_view); //Get displayed list of outlets
 
         mRecyclerView.setHasFixedSize(true); //Set fixed size for displayed list of items (necessary!)
 
         mLayoutManager = new LinearLayoutManager(this); //Get manager for list
         mRecyclerView.setLayoutManager(mLayoutManager); //Set manager to list
 
-        User user = (User) getIntent().getParcelableExtra("user"); //Get sent user
-        mAdapter = new FavouritesAdapter(getFavorites(user.getId()), mRecyclerView); //Get users favourite outlets and add to adapter
+        List<Outlet> checked = new ArrayList<>();
+        for(Outlet outlet : mOutlets) {
+            EditText textPlain = (EditText) findViewById(R.id.searchText);
+            if(outlet.getName().toLowerCase().contains(textPlain.getText().toString().toLowerCase())) {
+                checked.add(outlet);
+            }
+        }
+
+        mAdapter = new SearchAdapter(checked, mRecyclerView); //Get users favourite outlets and add to adapter
         mRecyclerView.setAdapter(mAdapter); //Set adapter (needed for displaying)
     }
 }
-
-
-
-
-
-
-
-

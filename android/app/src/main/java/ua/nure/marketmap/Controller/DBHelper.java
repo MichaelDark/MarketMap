@@ -1,7 +1,18 @@
 package ua.nure.marketmap.Controller;
 
+import android.util.Log;
+
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,6 +32,41 @@ public class DBHelper {
     }
 
     public static List<Outlet> getOutlets() {
+        /*try {
+            // This is getting the url from the string we passed in
+            URL url = new URL("");
+
+            // Create the urlConnection
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+
+            urlConnection.setDoInput(true);
+            urlConnection.setDoOutput(true);
+
+            urlConnection.setRequestProperty("Content-Type", "application/json");
+
+            urlConnection.setRequestMethod("GET");
+
+            int statusCode = urlConnection.getResponseCode();
+
+            if (statusCode ==  200) {
+
+                InputStream inputStream = new BufferedInputStream(urlConnection.getInputStream());
+
+                //String response = convertInputStreamToString(inputStream);
+
+                // From here you can convert the string to JSON with whatever JSON parser you like to use
+                // After converting the string to JSON, I call my custom callback. You can follow this process too, or you can implement the onPostExecute(Result) method
+            } else {
+                // Status code is not 200
+                // Do something to handle the error
+            }
+
+        } catch (Exception e) {
+
+        }
+        return null;
+        */
         Outlet o01 = new Outlet(1, 4.7, "У Ашота", "пр. Тракторстроителей 128", "8:00 - 19:00", CategoriesList.getCategory(7));
         o01.addPoint(50.010566, 36.350756);
         o01.addPoint(50.010592, 36.350788);
@@ -33,7 +79,7 @@ public class DBHelper {
         o02.addPoint(50.010592, 36.350858);
         o02.addPoint(50.010614, 36.350816);
 
-        Outlet o03 = new Outlet(3, 4.3, "Все по 5", "пр. Тракторстроителей 128", "6:30 - 20:00", CategoriesList.getCategory(3));
+        Outlet o03 = new Outlet(3, 4.3, "All 5", "пр. Тракторстроителей 128", "6:30 - 20:00", CategoriesList.getCategory(3));
         o03.addPoint(50.010647, 36.350234);
         o03.addPoint(50.010704, 36.350312);
         o03.addPoint(50.010672, 36.350366);

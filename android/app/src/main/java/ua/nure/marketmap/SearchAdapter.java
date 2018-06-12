@@ -15,7 +15,7 @@ import ua.nure.marketmap.Model.Category;
 import ua.nure.marketmap.Model.Color;
 import ua.nure.marketmap.Model.Outlet;
 
-public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.ViewHolder> {
+public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
     private List<Outlet> mDataset;
     private RecyclerView mRecyclerView;
 
@@ -27,11 +27,11 @@ public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.Vi
         }
     }
 
-    public FavouritesAdapter(List<Outlet> myDataset) {
+    public SearchAdapter(List<Outlet> myDataset) {
         mDataset = myDataset;
     }
 
-    public FavouritesAdapter(List<Outlet> myDataset, RecyclerView recyclerView) {
+    public SearchAdapter(List<Outlet> myDataset, RecyclerView recyclerView) {
         mDataset = myDataset;
         mRecyclerView = recyclerView;
     }
